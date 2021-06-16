@@ -16,14 +16,14 @@ import java.util.HashMap;
  */
 @Controller
 @RequestMapping(value = "list")
-public class ListController {
+public class ListController { //has two fields, HashMaps, and a constructor to fill those HashMaps with the data from assignments 1 & 2.
 
     static HashMap<String, String> columnChoices = new HashMap<>();
     static HashMap<String, Object> tableChoices = new HashMap<>();
 
     public ListController () {
-        columnChoices.put("all", "All");
-        columnChoices.put("employer", "Employer");
+        columnChoices.put("all", "All"); //has not been implemented yet
+        columnChoices.put("employer", "Employer"); //lowercase corresponds with jobData.csv > JobData.java >
         columnChoices.put("location", "Location");
         columnChoices.put("positionType", "Position Type");
         columnChoices.put("coreCompetency", "Skill");
@@ -46,7 +46,7 @@ public class ListController {
         return "list";
     }
 
-    @RequestMapping(value = "jobs")
+    @RequestMapping(value = "jobs")                                         //columnChoices             tableChoices
     public String listJobsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
         ArrayList<Job> jobs;
         if (column.toLowerCase().equals("all")){

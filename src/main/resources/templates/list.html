@@ -13,7 +13,7 @@
 
         <table class="centeredTable">
             <tr>
-                <th:block th:each="column : ${columns}">
+                <th:block th:each="column : ${columns}"> <!--for each column in columns (list controller line 39 > line 21 > 25-29 ))  -->
                     <th th:text = "${column.value}"></th>
                 </th:block>
             </tr>
@@ -21,8 +21,8 @@
                 <!-- TODO #2: Complete the View Jobs By Category Table. -->
 
                 <td></td> <!-- Feel free to remove or modify this element if necessary. -->
-
-                <td th:each="category : ${tableChoices}">
+<!--next block creates the query param to search in employer, position, etc. click list in nav, then any other link to see it in action  -->
+                <td th:each="category : ${tableChoices}"> <!--for each cat in tablechoices (list controller line 40 > line 22 > 31-34 )-->
                     <ul>
                         <li th:each="item : ${category.value}">
                             <a th:href="@{/list/jobs(column=${category.key},value=${item})}" th:text="${item}"></a>
