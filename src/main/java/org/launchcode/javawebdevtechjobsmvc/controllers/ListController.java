@@ -47,7 +47,9 @@ public class ListController { //has two fields, HashMaps, and a constructor to f
     }
 
     @RequestMapping(value = "jobs")                                         //columnChoices             tableChoices
-    public String listJobsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
+    public String listJobsByColumnAndValue(Model model,
+                                           @RequestParam String column,
+                                           @RequestParam String value) {
         ArrayList<Job> jobs;
         if (column.toLowerCase().equals("all")){
             jobs = JobData.findAll();
