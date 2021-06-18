@@ -9,19 +9,18 @@
 <div class="container body-content">
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-    <table class="centered-table, job-listing">
+    <table class="centered-table, table.job.job-listing">
 
             <th:block th:each="job : ${jobs}"> <!--for each column in columns (list controller line 39 > line 21 > 25-29 ))  -->
 <!--TODO: ask how to fix this.-->
+                <!--                <tr>-->
+                <!--                    <td></td>-->
+                <!--                    <td></td>-->
+                <!--                </tr>-->
 
                 <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-
-                <tr>
-                    <td font-weight="bold"> ID </td>
-                    <td th:text = "${job.id}"></td>
+                    <td style = "font-weight: bold"> ID </td>
+                    <td style = "font-weight: bold" th:text = "${job.id}"></td>
                 </tr>
 
                 <tr  >
@@ -50,11 +49,10 @@
                 </tr>
 
 <!--TODO: ask how to fix this.-->
-                <tr>
-                    <td></td>
-                    <td></td>
-                </tr>
-
+<!--                <tr>-->
+<!--                    <td></td>-->
+<!--                    <td></td>-->
+<!--                </tr>-->
             </th:block>
 
     </table>
