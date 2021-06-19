@@ -33,10 +33,9 @@ public class SearchController {
                                        @RequestParam String searchTerm) {
 
         ArrayList<Job> jobs;
-        model.addAttribute("tableChoices", tableChoices);
-        model.addAttribute("columns", columnChoices);
 
-        if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
+
+        if (searchTerm.equalsIgnoreCase("all") || searchTerm.equals("")) {
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
         } else {
@@ -46,6 +45,8 @@ public class SearchController {
         model.addAttribute(searchType, "searchType");//are these doing anything?
         model.addAttribute(searchTerm, "searchTerm");
         model.addAttribute("jobs", jobs);
+        model.addAttribute("tableChoices", tableChoices);
+        model.addAttribute("columns", columnChoices);
         return"results";
     }
 
