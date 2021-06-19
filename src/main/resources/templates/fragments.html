@@ -28,14 +28,14 @@
     </div>
 
     <div th:fragment="jobs-results">
-        <table class="centered-table, table.job.job-listing">
+        <table class="centered-table,  job-listing">
 
             <th:block th:each="job : ${jobs}"> <!--for each column in columns (list controller line 39 > line 21 > 25-29 ))  -->
-                <!--TODO: ask how to fix this.-->
-                <!--                <tr>-->
-                <!--                    <td></td>-->
-                <!--                    <td></td>-->
-                <!--                </tr>-->
+<!--                TODO: ask how to fix this.-->
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
 
                 <tr>
                     <td style = "font-weight: bold"> ID </td>
@@ -67,16 +67,44 @@
                     <td th:text = "${job.coreCompetency}">    </td>
                 </tr>
 
-                <!--TODO: ask how to fix this.-->
-                <!--                <tr>-->
-                <!--                    <td></td>-->
-                <!--                    <td></td>-->
-                <!--                </tr>-->
+<!--                 TODO:  ask how to fix this.-->
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
             </th:block>
 
         </table>
 
     </div>
+
+    <div th:fragment="search-bar">
+        <form th:action="@{/search/results}" method = "post">
+            <h2>Search by:</h2>
+
+            <p>
+            <span th:each="column : ${columns}">
+                <input
+                        type="radio"
+                        name="searchType"
+                        th:id="${column.key}"
+                        th:value="${column.key}"
+                        th:checked="${column.key == 'all'}"/>
+                <label th:for="${column.key}" th:text="${column.value}"></label>
+            </span>
+
+            </p>
+
+            <p>
+                <label for="searchTerm">Keyword:</label>
+                <input type="text" name="searchTerm" id="searchTerm" />
+            </p>
+
+            <input type="submit" value="Search" />
+        </form>
+    </div>
+
+
 
 </body>
 </html>
