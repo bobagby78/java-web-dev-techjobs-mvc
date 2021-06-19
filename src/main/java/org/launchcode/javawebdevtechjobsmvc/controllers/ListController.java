@@ -51,7 +51,7 @@ public class ListController { //has two fields, HashMaps, and a constructor to f
                                            @RequestParam String column,
                                            @RequestParam String value) {
         ArrayList<Job> jobs;
-        if (column.toLowerCase().equals("all")){
+        if (column.equalsIgnoreCase("all")){
             jobs = JobData.findAll();
             model.addAttribute("title", "All Jobs");
         } else {
