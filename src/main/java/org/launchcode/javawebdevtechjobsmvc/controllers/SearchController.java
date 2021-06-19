@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.columnChoices;
+import static org.launchcode.javawebdevtechjobsmvc.controllers.ListController.tableChoices;
 
 /**
  * Created by LaunchCode
@@ -32,15 +33,19 @@ public class SearchController {
                                        @RequestParam String searchTerm) {
 
         ArrayList<Job> jobs;
+        model.addAttribute("tableChoices", tableChoices);
+        model.addAttribute("columns", columnChoices);
 
-        jobs = JobData.findAll();
         if (searchTerm.toLowerCase().equals("all") || searchTerm.equals("")) {
             jobs = JobData.findAll();
+            model.addAttribute("title", "All Jobs");
         } else {
             jobs = JobData.findByColumnAndValue(searchType, searchTerm);
+            model.addAttribute("title", "Jobs in the category " + columnChoices.get(searchType) + "including keyword: " + tableChoices.get(searchTerm));
         }
-        model.addAttribute(searchType, "searchType");
+        model.addAttribute(searchType, "searchType");//are these doing anything?
         model.addAttribute(searchTerm, "searchTerm");
+        model.addAttribute("jobs", jobs);
         return"results";
     }
 
