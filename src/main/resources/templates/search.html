@@ -36,18 +36,12 @@
 
     <hr />
 
-    <!-- TODO #4 - Loop over the search results to display all job fields. -->
 
     <table class="centered-table, table.job.job-listing">
 
         <th:block th:each="job : ${jobs}"> <!--for each column in columns (list controller line 39 > line 21 > 25-29 ))  -->
-            <!--TODO: ask how to fix this.-->
-            <!--                <tr>-->
-            <!--                    <td></td>-->
-            <!--                    <td></td>-->
-            <!--                </tr>-->
 
-            <tr>
+             <tr>
                 <td style = "font-weight: bold"> ID </td>
                 <td style = "font-weight: bold" th:text = "${job.id}"></td>
             </tr>
